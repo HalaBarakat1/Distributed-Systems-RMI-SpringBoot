@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package user;
+
+option java_multiple_files = true;
+option java_package = "org.ds.grpc.user";
+option java_outer_classname = "UserProto";
+
+// gRPC contract between order-service (client) and user-service (server)
+service UserService {
+  // Returns the user's data, or status NOT_FOUND if the user does not exist
+  rpc GetUser (GetUserRequest) returns (UserResponse);
+}
+
+message GetUserRequest {
+  int64 user_id = 1;
+}
+
+message UserResponse {
+  int64 user_id = 1;
+  string name = 2;
+  string email = 3;
+}

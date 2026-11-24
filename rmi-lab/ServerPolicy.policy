@@ -1,0 +1,4 @@
+grant {
+	// allows anyone to listen on un-privileged ports
+		permission java.security.AllPermission;
+};

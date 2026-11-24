@@ -1,0 +1,7 @@
+target/
+out/
+.idea/
+*.iml
+Report.docx
+~$*.docx
+HELP.md

@@ -1,0 +1,15 @@
+package org.ds.EX2.server;
+
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+
+public class Server {
+    public static void main(String[] args) throws RemoteException {
+        Registry registry = LocateRegistry.createRegistry(1099);
+        CalculatorSVCImp calculatorSVCImp = new CalculatorSVCImp();
+        registry.rebind("CalculatorSVC", calculatorSVCImp);
+        System.out.println("Server Ready");
+
+    }
+}

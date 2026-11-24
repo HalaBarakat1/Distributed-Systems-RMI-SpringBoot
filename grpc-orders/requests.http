@@ -1,0 +1,44 @@
+### 1) User exists -> 201 Created
+POST http://localhost:8080/api/orders
+Content-Type: application/json
+
+{
+  "userId": 101,
+  "productName": "Laptop",
+  "quantity": 2
+}
+
+### 2) User not found -> 404 Not Found
+POST http://localhost:8080/api/orders
+Content-Type: application/json
+
+{
+  "userId": 999,
+  "productName": "Laptop",
+  "quantity": 2
+}
+
+### 3) Stop user-service first -> 503 Service Unavailable
+POST http://localhost:8080/api/orders
+Content-Type: application/json
+
+{
+  "userId": 102,
+  "productName": "Phone",
+  "quantity": 1
+}
+
+### 4) Invalid data -> 400 Bad Request
+POST http://localhost:8080/api/orders
+Content-Type: application/json
+
+{
+  "userId": 101,
+  "quantity": 0
+}
+
+### List all saved orders
+GET http://localhost:8080/api/orders
+
+### Get one order
+GET http://localhost:8080/api/orders/5001
